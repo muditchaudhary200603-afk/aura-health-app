@@ -1,0 +1,419 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aura-dark: #1b4332;
+  --aura-medium: #2d6a4f;
+  --aura-light: #95d5b2;
+  --aura-cream: #f5f0e8;
+  --aura-white: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(149, 213, 178, 0.3), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(45, 106, 79, 0.18), transparent 34%),
+    var(--aura-cream);
+  color: var(--aura-dark);
+  font-family: var(--font-inter), sans-serif;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(149, 213, 178, 0.12), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(45, 106, 79, 0.14), transparent 30%),
+    #10211a;
+  color: rgba(245, 240, 232, 0.96);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair), serif;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+main {
+  position: relative;
+}
+
+/* ─── Layout ─── */
+
+.section-shell {
+  margin: 0 auto;
+  width: min(1120px, calc(100% - 32px));
+}
+
+/* ─── Glass Card ─── */
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(22px) saturate(1.6);
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  box-shadow: 0 30px 80px rgba(27, 67, 50, 0.18);
+}
+
+.dark .glass-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(18, 41, 32, 0.84), rgba(14, 32, 26, 0.72));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+/* ─── Form Fields ─── */
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 1);
+}
+
+.light-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(27, 67, 50, 0.72);
+}
+
+.auth-input,
+.light-input {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(149, 213, 178, 0.6);
+  padding: 0.95rem 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-input {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--aura-white);
+}
+
+.auth-input::placeholder {
+  color: rgba(245, 240, 232, 0.62);
+}
+
+.light-input {
+  background: var(--aura-cream);
+  color: var(--aura-dark);
+}
+
+.dark .auth-input {
+  border-color: rgba(149, 213, 178, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--aura-cream);
+}
+
+.auth-input:focus,
+.light-input:focus {
+  border-color: var(--aura-light);
+  box-shadow: 0 0 0 4px rgba(149, 213, 178, 0.22);
+}
+
+/* ─── Buttons ─── */
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--aura-dark);
+  color: var(--aura-cream);
+  padding: 0.95rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(27, 67, 50, 0.2);
+}
+
+.primary-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 67, 50, 0.25);
+  background: transparent;
+  color: var(--aura-dark);
+  padding: 0.9rem 1.3rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.outline-button:hover {
+  background: rgba(27, 67, 50, 0.05);
+  transform: scale(1.02);
+}
+
+.dark .outline-button {
+  border-color: rgba(245, 240, 232, 0.2);
+  color: var(--aura-cream);
+}
+
+.dark .outline-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Auth Shell ─── */
+
+.auth-shell {
+  min-height: calc(100vh - 180px);
+  display: grid;
+  place-items: center;
+  padding: 120px 16px 48px;
+  background: linear-gradient(135deg, var(--aura-dark), var(--aura-medium));
+}
+
+/* ─── Typography ─── */
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.5rem, 4vw, 4.75rem);
+  font-weight: 600;
+  line-height: 0.98;
+}
+
+.link-line {
+  position: relative;
+}
+
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+
+.link-line:hover::after {
+  opacity: 0.8;
+}
+
+/* ─── Floating Header ─── */
+
+.floating-header-shell {
+  position: fixed;
+  top: 0.9rem;
+  left: 0;
+  right: 0;
+  z-index: 70;
+  pointer-events: none;
+}
+
+.floating-header-inner {
+  pointer-events: auto;
+}
+
+/* ─── Premium Card ─── */
+
+.premium-card {
+  box-shadow:
+    0 10px 28px rgba(27, 67, 50, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.55) inset;
+}
+
+.dark .premium-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.26),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.dark .premium-card::after {
+  content: "";
+  position: absolute;
+  width: min(36%, 180px);
+  height: min(36%, 180px);
+  right: -8%;
+  top: -9%;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(149, 213, 178, 0.1) 0%, rgba(149, 213, 178, 0.04) 42%, rgba(149, 213, 178, 0) 74%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* ─── Dark mode overrides ─── */
+
+.dark .light-input {
+  border-color: rgba(149, 213, 178, 0.22);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--aura-cream);
+}
+
+.dark .light-input::placeholder {
+  color: rgba(245, 240, 232, 0.45);
+}
+
+.dark .light-label {
+  color: rgba(245, 240, 232, 0.7);
+}
+
+.dark .primary-button {
+  background: var(--aura-cream);
+  color: var(--aura-dark);
+}
+
+.dark .status-confirmed {
+  background: rgba(149, 213, 178, 0.18);
+  color: #b8ecd1;
+}
+
+.dark .status-pending {
+  background: rgba(246, 231, 178, 0.16);
+  color: #f4d985;
+}
+
+.dark .status-cancelled {
+  background: rgba(241, 208, 208, 0.14);
+  color: #f0b2b2;
+}
+
+/* ─── Status Badges ─── */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.status-pending {
+  background: #f6e7b2;
+  color: #8a5b00;
+}
+
+.status-confirmed {
+  background: rgba(45, 106, 79, 0.16);
+  color: var(--aura-medium);
+}
+
+.status-cancelled {
+  background: #f1d0d0;
+  color: #9b3b3b;
+}
+
+/* ─── Loading Skeleton ─── */
+
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+
+.skeleton {
+  background: linear-gradient(110deg, rgba(27, 67, 50, 0.06) 30%, rgba(27, 67, 50, 0.12) 50%, rgba(27, 67, 50, 0.06) 70%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+  border-radius: 1rem;
+}
+
+.dark .skeleton {
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.04) 30%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.04) 70%);
+  background-size: 200% 100%;
+}
+
+/* ─── Toast Animation ─── */
+
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.toast-enter {
+  animation: toastSlideIn 0.3s ease-out;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 640px) {
+  .section-shell {
+    width: min(100% - 20px, 1120px);
+  }
+
+  .floating-header-shell {
+    top: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dark .premium-card::after {
+    filter: none;
+  }
+
+  .skeleton {
+    animation: none;
+    opacity: 0.7;
+  }
+}

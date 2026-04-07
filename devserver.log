@@ -1,0 +1,30 @@
+
+> aura-health-app@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.8s
+ ○ Compiling / ...
+ ✓ Compiled / in 16.9s (1325 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 18225ms
+ GET /_next/static/webpack/fd948c76aab37d0b.webpack.hot-update.json 404 in 18627ms
+ GET / 200 in 505ms
+ GET / 200 in 2108ms
+ GET / 200 in 987ms
+ ✓ Compiled /middleware in 294ms (72 modules)
+ ✓ Compiled /dashboard in 493ms (1315 modules)
+ ✓ Compiled /api/chat in 261ms (710 modules)
+ POST /api/chat 200 in 885ms
+ POST /api/chat 200 in 633ms
+ POST /api/chat 200 in 803ms
+ ✓ Compiled /services in 446ms (1335 modules)
+ POST /api/chat 200 in 564ms
+ ○ Compiling /specialists ...
+ ✓ Compiled /specialists in 659ms (1349 modules)
+ ✓ Compiled /contact in 380ms (1356 modules)
+ ✓ Compiled /admin/login in 378ms (1363 modules)

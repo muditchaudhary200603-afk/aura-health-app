@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aura-health-at5hvlysu-muditchaudhary200603-1727s-projects.vercel.app/sitemap.xml
