@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://aura-health-at5hvlysu-muditchaudhary200603-1727s-projects.vercel.app";
+  const baseUrl = "https://aura-health-app-jet.vercel.app";
 
   return [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },

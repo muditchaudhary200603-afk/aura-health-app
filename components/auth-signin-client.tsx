@@ -72,7 +72,7 @@ export function AuthSigninClient({ code }: { code?: string }) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "https://aura-health-at5hvlysu-muditchaudhary200603-1727s-projects.vercel.app/"
+        redirectTo: `${window.location.origin}/`
       }
     });
 
