@@ -96,6 +96,15 @@ export function AppointmentForm({
       return;
     }
 
+    try {
+      await fetch("/api/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(appointment)
+      });
+    } catch (e) {
+      console.error("Email notification failed", e);
+    }
 
     setLoading(false);
     setConfirmation({

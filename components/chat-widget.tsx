@@ -79,13 +79,12 @@ export function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-[80] flex flex-col items-end gap-3 sm:bottom-5 sm:right-5">
+    <div className="fixed bottom-10 right-4 z-[80] flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {open ? (
         <div className="premium-card w-[min(92vw,24rem)] overflow-hidden rounded-[1.75rem] border border-[#1B4332]/12 bg-white/95 shadow-[0_22px_60px_rgba(27,67,50,0.16)] backdrop-blur-xl dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(14,31,25,0.98),rgba(16,36,28,0.96))]">
           <div className="flex items-center justify-between border-b border-[#1B4332]/8 px-5 py-3 dark:border-white/10">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#2D6A4F] dark:text-[#95D5B2]">Aura Chat</p>
-              <p className="mt-0.5 text-xs text-[#1B4332]/68 dark:text-[#F5F0E8]/78">Powered by Groq</p>
             </div>
             <button
               type="button"

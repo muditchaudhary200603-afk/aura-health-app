@@ -78,19 +78,19 @@ export function SiteHeader() {
       <header className="floating-header-shell">
         <div className="section-shell">
           <div
-            className={`floating-header-inner flex items-center justify-between gap-3 border border-white/55 px-4 py-[0.45rem] shadow-[0_14px_36px_rgba(27,67,50,0.08),inset_0_1px_0_rgba(255,255,255,0.62),inset_0_-1px_0_rgba(255,255,255,0.16)] backdrop-blur-[30px] backdrop-saturate-[1.8] transition-all duration-500 ease-out supports-[backdrop-filter]:bg-white/16
+            className={`floating-header-inner flex items-center justify-between gap-2 border border-white/55 px-3 py-[0.4rem] sm:px-4 sm:py-[0.45rem] shadow-[0_14px_36px_rgba(27,67,50,0.08),inset_0_1px_0_rgba(255,255,255,0.62),inset_0_-1px_0_rgba(255,255,255,0.16)] backdrop-blur-[30px] backdrop-saturate-[1.8] transition-all duration-500 ease-out supports-[backdrop-filter]:bg-white/16
               dark:border-white/10 dark:shadow-[0_16px_42px_rgba(0,0,0,0.26),inset_0_1px_0_rgba(255,255,255,0.08),inset_0_-1px_0_rgba(255,255,255,0.03)] dark:supports-[backdrop-filter]:bg-[#163127]/22
               ${scrolled
-                ? "rounded-[1.4rem] bg-white/28 dark:bg-[#163127]/38"
+                ? "rounded-[1.4rem] sm:rounded-[1.6rem] bg-white/28 dark:bg-[#163127]/38"
                 : "rounded-[1.85rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.5),rgba(255,255,255,0.24))] dark:bg-[linear-gradient(180deg,rgba(19,39,32,0.58),rgba(19,39,32,0.28))]"
               }`}
           >
             {/* Logo */}
-            <Link href="/" className="flex min-w-0 items-center gap-2.5">
-              <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#163f31] text-[13px] font-bold text-[#F5F0E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">AH</div>
-              <div className="min-w-0">
+            <Link href="/" className="flex flex-shrink-0 items-center gap-2.5">
+              <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#163f31] text-[14px] font-bold text-[#F5F0E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">AH</div>
+              <div className="hidden min-w-0 sm:block">
                 <div className="truncate text-[clamp(1.1rem,1.6vw,1.5rem)] font-semibold leading-none tracking-[-0.03em] text-[#163b2e] dark:text-[#F5F0E8]">Aura Health</div>
-                <div className="mt-0.5 hidden text-[9px] uppercase tracking-[0.36em] text-[#416c59] dark:text-[#9fddbd] sm:block">Clinical Sanctuary</div>
+                <div className="mt-0.5 text-[9px] uppercase tracking-[0.36em] text-[#416c59] dark:text-[#9fddbd]">Clinical Sanctuary</div>
               </div>
             </Link>
 
@@ -127,7 +127,7 @@ export function SiteHeader() {
                 </Link>
               )}
               <ThemeToggle />
-              <Link href="/contact" className="relative overflow-hidden primary-button !px-4 !py-[0.6rem] !text-[11px] !tracking-[0.22em] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition hover:scale-[1.03]">
+              <Link href="/contact" className="relative overflow-hidden primary-button !hidden !px-5 !py-2.5 !text-[11px] !tracking-[0.22em] shadow-[0_4px_14px_rgba(27,67,50,0.3)] transition hover:scale-[1.03] sm:!inline-flex">
                 <Ripple color="text-white" opacity={0.15} />
                 <span className="relative z-10 pointer-events-none">Book Visit</span>
               </Link>
@@ -138,12 +138,12 @@ export function SiteHeader() {
                 onClick={() => setMobileOpen((v) => !v)}
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
-                className="relative grid h-10 w-10 place-items-center rounded-full border border-[#163b2e]/10 bg-white/22 transition hover:bg-white/40 dark:border-white/10 dark:bg-white/[0.06] lg:hidden"
+                className="relative grid h-11 w-11 place-items-center rounded-full border border-[#163b2e]/10 bg-white/40 shadow-sm transition hover:bg-white/60 dark:border-white/10 dark:bg-white/[0.08] lg:hidden"
               >
-                <div className="flex flex-col items-center gap-[4.5px]">
-                  <span className={`block h-[2px] w-[18px] rounded-full bg-[#163b2e] transition-transform dark:bg-[#F5F0E8] ${mobileOpen ? "translate-y-[6.5px] rotate-45" : ""}`} />
-                  <span className={`block h-[2px] w-[18px] rounded-full bg-[#163b2e] transition-opacity dark:bg-[#F5F0E8] ${mobileOpen ? "opacity-0" : ""}`} />
-                  <span className={`block h-[2px] w-[18px] rounded-full bg-[#163b2e] transition-transform dark:bg-[#F5F0E8] ${mobileOpen ? "-translate-y-[6.5px] -rotate-45" : ""}`} />
+                <div className="flex flex-col items-center gap-[5px]">
+                  <span className={`block h-[2px] w-[20px] rounded-full bg-[#163b2e] transition-transform dark:bg-[#F5F0E8] ${mobileOpen ? "translate-y-[7px] rotate-45" : ""}`} />
+                  <span className={`block h-[2px] w-[20px] rounded-full bg-[#163b2e] transition-opacity dark:bg-[#F5F0E8] ${mobileOpen ? "opacity-0" : ""}`} />
+                  <span className={`block h-[2px] w-[20px] rounded-full bg-[#163b2e] transition-transform dark:bg-[#F5F0E8] ${mobileOpen ? "-translate-y-[7px] -rotate-45" : ""}`} />
                 </div>
               </button>
             </div>

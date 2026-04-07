@@ -137,7 +137,7 @@ export function AdminDashboardClient() {
 
   if (loading) {
     return (
-      <section className="section-shell py-28">
+      <section className="section-shell py-16 sm:py-20 lg:py-24">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <div className="skeleton h-3 w-24 rounded" />
@@ -168,7 +168,7 @@ export function AdminDashboardClient() {
   return (
     <>
       {toast ? <Toast message={toast.message} tone={toast.tone} /> : null}
-      <section className="section-shell py-28">
+      <section className="section-shell py-16 sm:py-20 lg:py-24">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.24em] text-[#2D6A4F] dark:text-[#95D5B2]">Admin Portal</p>

@@ -220,17 +220,15 @@ export async function signOut() {
 
 export async function saveAppointment(appointment: AppointmentRecord): Promise<Result<AppointmentRecord>> {
   try {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("appointments")
-      .insert(appointment)
-      .select("*")
-      .single<AppointmentRecord>();
+      .insert(appointment);
 
-    if (error || !data) {
-      return { error: error?.message || "Unable to save appointment." };
+    if (error) {
+      return { error: error.message || "Unable to save appointment." };
     }
 
-    return { data };
+    return { data: appointment };
   } catch (error) {
     return { error: error instanceof Error ? error.message : "Unable to save appointment." };
   }

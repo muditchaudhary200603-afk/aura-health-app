@@ -75,7 +75,7 @@ export function DashboardClient() {
 
   if (loading) {
     return (
-      <section className="section-shell py-28">
+      <section className="section-shell py-16 sm:py-20 lg:py-24">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <div className="skeleton h-3 w-28 rounded" />
@@ -112,7 +112,7 @@ export function DashboardClient() {
   return (
     <>
       {toast ? <Toast message={toast.message} tone={toast.tone} /> : null}
-      <section className="section-shell py-28">
+      <section className="section-shell py-16 sm:py-20 lg:py-24">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.24em] text-[#2D6A4F] dark:text-[#95D5B2]">Patient Dashboard</p>

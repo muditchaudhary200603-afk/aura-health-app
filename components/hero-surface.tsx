@@ -86,18 +86,18 @@ export function HeroSurface({
             initial={reduced ? false : { opacity: 0, y: 20 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.28 }}
-            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:items-start"
+            className="mt-8 flex flex-row flex-wrap items-center gap-3 sm:items-start"
           >
             <Link
               href={primaryHref}
-              className="relative overflow-hidden inline-flex items-center justify-center rounded-full bg-mist px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-white hover:scale-[1.03]"
+              className="relative overflow-hidden inline-flex items-center justify-center rounded-full bg-mist px-5 py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-white hover:scale-[1.03] sm:px-6 sm:py-3"
             >
               <Ripple color="text-black" opacity={0.15} />
               <span className="relative z-10 pointer-events-none">{primaryLabel}</span>
             </Link>
             <Link
               href={secondaryHref}
-              className="relative overflow-hidden inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-mist transition hover:bg-white/10 hover:scale-[1.03]"
+              className="relative overflow-hidden inline-flex items-center justify-center rounded-full px-4 py-2.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-mist/80 transition hover:text-mist hover:scale-[1.03] sm:px-6 sm:py-3 sm:border sm:border-white/25 sm:hover:bg-white/10"
             >
               <Ripple color="text-white" opacity={0.15} />
               <span className="relative z-10 pointer-events-none">{secondaryLabel}</span>
