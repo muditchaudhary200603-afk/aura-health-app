@@ -1,95 +1,79 @@
-# Aura Health App
+﻿# Aura Health App
 
-A modern, responsive healthcare booking interface built using Next.js and Tailwind CSS. Designed to deliver a clean user experience for patients while maintaining a scalable and professional frontend architecture.
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=flat&logo=vercel)](https://your-live-website-link.com)
+
+A modern healthcare booking platform built with Next.js, featuring a clean UI, responsive design, and integrated backend logic for handling appointment workflows.
+
+---
+
+## Live Website
+
+ https://aura-health-app-jet.vercel.app
 
 ---
 
 ## Overview
 
-Aura Health App is a frontend-focused healthcare platform that provides an intuitive interface for users to explore services, view specialists, and simulate appointment booking workflows. The project emphasizes UI/UX quality, responsiveness, and production-ready design practices.
+Aura Health App is a full-stack healthcare platform that allows users to explore services, select specialists, and manage appointment bookings. The project focuses on performance, scalability, and a seamless user experience across devices.
 
 ---
 
 ## Core Features
 
-- **Appointment Interface**
-  - User-friendly booking form
-  - Department and specialist selection
-  - Date and time preference input
-  - Queue number generation (UI-level)
+### Appointment System
+- Interactive booking form  
+- Department and specialist selection  
+- Date and time scheduling  
+- Queue number generation  
 
-- **Responsive Design**
-  - Fully optimized for mobile, tablet, and desktop
-  - Clean layout with Tailwind CSS
-  - Smooth visual hierarchy and spacing
+### Backend Logic
+- Server-side handling of appointment data  
+- Secure data flow through controlled routes  
+- Structured request handling  
 
-- **Navigation System**
-  - Functional header with mobile hamburger menu
-  - Seamless page transitions
+### Responsive Design
+- Optimized for mobile, tablet, and desktop  
+- Clean and consistent UI using Tailwind CSS  
 
-- **Service Display**
-  - Structured healthcare service listings
-  - Two-column responsive layout (optimized for mobile fix)
+### Navigation
+- Responsive header with hamburger menu  
+- Smooth user flow across pages  
 
-- **User Experience**
-  - Minimal and modern design
-  - Fast-loading pages
-  - Accessible UI components
+### Service Display
+- Organized healthcare service listings  
+- Mobile-optimized layout  
 
 ---
 
 ## Tech Stack
 
-- **Frontend Framework:** Next.js (App Router)
-- **Styling:** Tailwind CSS
-- **UI Components:** Radix UI (primitives)
-- **Icons:** Lucide React
-- **Animation:** Framer Motion
+- **Frontend:** Next.js (App Router)  
+- **Styling:** Tailwind CSS  
+- **UI Components:** Radix UI  
+- **Icons:** Lucide React  
+- **Animation:** Framer Motion  
 
 ---
 
 ## Project Structure
 
-- `/app` -> Pages and routing
-- `/components` -> Reusable UI components
-- `/lib` -> Utility functions (client-safe)
-- `/public` -> Static assets
-- `/styles` -> Global styles
+/app → Pages and routing  
+/components → UI components  
+/lib → Utilities and shared logic  
+/public → Static assets  
+/styles → Styling  
 
 ---
 
-## Setup & Installation
+## Security
 
-```bash
-npm install
-npm run dev
-```
+- Sensitive data handled via environment variables  
+- No hardcoded secrets in source code  
+- Controlled access to backend logic  
 
-Visit: http://localhost:3000
-
-## Environment Variables
-
-Create a `.env.local` file (not included in repo):
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-```
-
-## Security Notice
-
-- This repository contains frontend-only code
-- No backend APIs or sensitive credentials are included
-- All environment variables are excluded via `.gitignore`
-- No authentication or database logic is exposed
-
-## Future Improvements
-
-- Backend integration with secure APIs
-- Authentication system (JWT-based)
-- Real-time appointment management
-- Admin dashboard enhancements
+---
 
 ## License
 
-This project is for educational and development purposes.
+MIT License
