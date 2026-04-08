@@ -16,7 +16,7 @@ export default async function BookPage({
     services.find((s) => s.slug === serviceSlug)?.name || slugToLabel(serviceSlug) || "Aura Health";
 
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-8 pt-28 sm:px-6 lg:px-8 lg:py-10">
+    <div className="mx-auto flex max-w-5xl flex-col gap-10 px-4 pb-8 sm:px-6 lg:px-8 lg:pb-10">
       <ScrollReveal>
         <section className="premium-card rounded-[2rem] border border-black/5 bg-white/85 p-6 shadow-soft dark:border-white/10 dark:bg-white/[0.04] sm:p-8">
           <p className="text-xs uppercase tracking-[0.32em] text-aura-pine/70 dark:text-aura-aqua/70">Booking</p>

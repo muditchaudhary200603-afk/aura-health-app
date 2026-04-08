@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="section-shell pb-20 pt-28 sm:pb-24 sm:pt-32">
+    <section className="section-shell pb-20 sm:pb-24">
       <div className="max-w-4xl">
         <p className="eyebrow text-[#2D6A4F] dark:text-[#95D5B2]">Contact Aura</p>
         <h1 className="mt-4 font-display text-5xl font-semibold leading-[0.96] text-[#1B4332] dark:text-[#F5F0E8] sm:text-6xl">

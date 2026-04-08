@@ -13,8 +13,8 @@ export default async function ServicesPage() {
   const services = await getServices();
 
   return (
-    <div className="pt-28">
-      <section className="section-shell py-14 sm:py-20">
+    <>
+      <section className="section-shell pb-14 sm:pb-20">
         <Reveal className="max-w-4xl">
           <div className="eyebrow">Services</div>
           <h1 className="mt-4 font-display text-5xl font-semibold leading-[0.94] sm:text-6xl">Medical expertise that stays legible.</h1>
@@ -66,6 +66,6 @@ export default async function ServicesPage() {
           </Reveal>
         ))}
       </section>
-    </div>
+    </>
   );
 }

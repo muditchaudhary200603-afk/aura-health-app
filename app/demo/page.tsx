@@ -8,7 +8,7 @@ export default function SpotlightRippleDemo() {
   const [unlocked, setUnlocked] = useState(false);
 
   return (
-    <div className="relative min-h-[600px] h-screen w-full flex items-center justify-center bg-[#09090b] overflow-hidden font-sans selection:bg-indigo-500/30">
+    <div className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-[#09090b] font-sans selection:bg-indigo-500/30">
       
       {/* 1. DOTTED BACKGROUND */}
       {/* We create a pattern using radial gradients */}

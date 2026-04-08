@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/spinner";
 import { Toast } from "@/components/toast";
-import { AppointmentRecord, getQueueNumber, getSession, supabase } from "@/lib/supabase";
 import { Ripple } from "@/components/ui/material-design-3-ripple";
 
 type ServiceOption = {
@@ -74,62 +73,48 @@ export function AppointmentForm({
 
     setLoading(true);
     try {
-      const currentSession = await getSession();
-      const queueNumber = await getQueueNumber(form.preferredDate, form.department);
-
-      const appointment: AppointmentRecord = {
-        patient_id: currentSession?.userId ?? null,
+      const appointment = {
         patient_name: form.patientName,
         patient_email: form.patientEmail,
         phone: form.phone,
         department: form.department,
         specialist: form.specialist,
+        doctor: form.specialist,
+        date: form.preferredDate,
+        time: form.preferredTime,
         preferred_date: form.preferredDate,
         preferred_time: form.preferredTime,
-        queue_number: queueNumber,
+        message: form.message,
         status: "Pending"
       };
 
-      try {
-        const { error } = await supabase.from("appointments").insert(appointment);
-        if (error) {
-          if (error.code === "42501") {
-            setToast({ message: "Please sign in to book.", tone: "error" });
-            return;
-          }
-          throw error;
-        }
-      } catch (error) {
-        console.error("Appointment insert failed", error);
-        setToast({ message: "Booking failed. Please try again.", tone: "error" });
+      const response = await fetch("/api/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(appointment)
+      });
+
+      const payload = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        const errorMessage =
+          (payload && typeof payload.error === "string" && payload.error) ||
+          (payload && typeof payload.message === "string" && payload.message) ||
+          `Booking failed with status ${response.status}.`;
+        console.error("Appointment booking failed", { status: response.status, payload });
+        setToast({ message: errorMessage, tone: "error" });
         return;
       }
 
-      let emailDelayed = false;
-      try {
-        const response = await fetch("/api/appointments", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(appointment)
-        });
-
-        if (!response.ok) {
-          throw new Error(`Email request failed with status ${response.status}`);
-        }
-      } catch (error) {
-        console.error("Email notification failed", error);
-        emailDelayed = true;
-      }
-
       setConfirmation({
-        queueNumber,
+        queueNumber: payload?.queueNumber || "Q-001",
         department: form.department,
         preferredDate: form.preferredDate,
         preferredTime: form.preferredTime
       });
       setToast({
-        message: emailDelayed ? "Booked! Email may be delayed." : "Appointment requested successfully.",
-        tone: emailDelayed ? "info" : "success"
+        message: payload?.emailDelayed ? "Booked! Email may be delayed." : "Appointment requested successfully.",
+        tone: payload?.emailDelayed ? "info" : "success"
       });
     } finally {
       setLoading(false);

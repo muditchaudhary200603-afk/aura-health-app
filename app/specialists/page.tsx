@@ -15,7 +15,7 @@ export default async function SpecialistsPage() {
   const allSpecialists = await getSpecialists();
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col gap-14 px-4 pb-8 pt-36 sm:px-6 sm:pt-40 lg:gap-20 lg:px-8 lg:pb-10">
+    <div className="mx-auto flex max-w-7xl flex-col gap-14 px-4 pb-8 sm:px-6 lg:gap-20 lg:px-8 lg:pb-10">
       <ScrollReveal>
         <section className="premium-card grid gap-6 rounded-[2rem] border border-black/5 bg-white/85 p-6 shadow-soft dark:border-white/10 dark:bg-white/[0.04] lg:grid-cols-[1.1fr,0.9fr] lg:items-start sm:p-8">
           <div>

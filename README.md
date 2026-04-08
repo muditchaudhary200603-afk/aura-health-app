@@ -1,63 +1,95 @@
 # Aura Health App
 
-A production-focused healthcare booking and communication application built with Next.js, TypeScript, Tailwind CSS, and Supabase.
+A modern, responsive healthcare booking interface built using Next.js and Tailwind CSS. Designed to deliver a clean user experience for patients while maintaining a scalable and professional frontend architecture.
+
+---
+
+## Overview
+
+Aura Health App is a frontend-focused healthcare platform that provides an intuitive interface for users to explore services, view specialists, and simulate appointment booking workflows. The project emphasizes UI/UX quality, responsiveness, and production-ready design practices.
+
+---
+
+## Core Features
+
+- **Appointment Interface**
+  - User-friendly booking form
+  - Department and specialist selection
+  - Date and time preference input
+  - Queue number generation (UI-level)
+
+- **Responsive Design**
+  - Fully optimized for mobile, tablet, and desktop
+  - Clean layout with Tailwind CSS
+  - Smooth visual hierarchy and spacing
+
+- **Navigation System**
+  - Functional header with mobile hamburger menu
+  - Seamless page transitions
+
+- **Service Display**
+  - Structured healthcare service listings
+  - Two-column responsive layout (optimized for mobile fix)
+
+- **User Experience**
+  - Minimal and modern design
+  - Fast-loading pages
+  - Accessible UI components
+
+---
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
-- React 18 + TypeScript
-- Tailwind CSS
-- Supabase (auth/data)
-- Resend (email workflows)
+- **Frontend Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS
+- **UI Components:** Radix UI (primitives)
+- **Icons:** Lucide React
+- **Animation:** Framer Motion
+
+---
 
 ## Project Structure
 
-- `app/` - App Router pages and layouts
-- `components/` - Reusable UI and feature components
-- `lib/` - Utilities and shared logic
-- `supabase/` - Database/migration assets
-- `public/` - Static assets
+- `/app` -> Pages and routing
+- `/components` -> Reusable UI components
+- `/lib` -> Utility functions (client-safe)
+- `/public` -> Static assets
+- `/styles` -> Global styles
 
-## Getting Started
+---
 
-### Prerequisites
-
-- Node.js 20+
-- npm 10+
-
-### Install
+## Setup & Installation
 
 ```bash
 npm install
-```
-
-### Configure Environment
-
-Copy `.env.example` to `.env.local` and set required values.
-
-```bash
-cp .env.example .env.local
-```
-
-### Run Development Server
-
-```bash
 npm run dev
 ```
 
-App will be available at `http://localhost:3000`.
+Visit: http://localhost:3000
 
-## Available Scripts
+## Environment Variables
 
-- `npm run dev` - start local dev server
-- `npm run build` - build for production
-- `npm run start` - run production server
+Create a `.env.local` file (not included in repo):
 
-## Security
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+```
 
-- Do not commit `.env.local` or any production secrets.
-- Rotate API keys immediately if exposed.
+## Security Notice
+
+- This repository contains frontend-only code
+- No backend APIs or sensitive credentials are included
+- All environment variables are excluded via `.gitignore`
+- No authentication or database logic is exposed
+
+## Future Improvements
+
+- Backend integration with secure APIs
+- Authentication system (JWT-based)
+- Real-time appointment management
+- Admin dashboard enhancements
 
 ## License
 
-MIT License. See [LICENSE](./LICENSE).
+This project is for educational and development purposes.
