@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/spinner";
 import { Toast } from "@/components/toast";
-import { AppointmentRecord, getQueueNumber, getSession, saveAppointment } from "@/lib/supabase";
+import { AppointmentRecord, getQueueNumber, getSession, supabase } from "@/lib/supabase";
 import { Ripple } from "@/components/ui/material-design-3-ripple";
 
 type ServiceOption = {
@@ -73,47 +73,67 @@ export function AppointmentForm({
     }
 
     setLoading(true);
-    const currentSession = await getSession();
-    const queueNumber = await getQueueNumber(form.preferredDate, form.department);
-
-    const appointment: AppointmentRecord = {
-      patient_id: currentSession?.userId ?? null,
-      patient_name: form.patientName,
-      patient_email: form.patientEmail,
-      phone: form.phone,
-      department: form.department,
-      specialist: form.specialist,
-      preferred_date: form.preferredDate,
-      preferred_time: form.preferredTime,
-      queue_number: queueNumber,
-      status: "Pending"
-    };
-
-    const saveResult = await saveAppointment(appointment);
-    if (saveResult.error) {
-      setLoading(false);
-      setToast({ message: saveResult.error, tone: "error" });
-      return;
-    }
-
     try {
-      await fetch("/api/appointments", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(appointment)
-      });
-    } catch (e) {
-      console.error("Email notification failed", e);
-    }
+      const currentSession = await getSession();
+      const queueNumber = await getQueueNumber(form.preferredDate, form.department);
 
-    setLoading(false);
-    setConfirmation({
-      queueNumber,
-      department: form.department,
-      preferredDate: form.preferredDate,
-      preferredTime: form.preferredTime
-    });
-    setToast({ message: "Appointment requested successfully.", tone: "success" });
+      const appointment: AppointmentRecord = {
+        patient_id: currentSession?.userId ?? null,
+        patient_name: form.patientName,
+        patient_email: form.patientEmail,
+        phone: form.phone,
+        department: form.department,
+        specialist: form.specialist,
+        preferred_date: form.preferredDate,
+        preferred_time: form.preferredTime,
+        queue_number: queueNumber,
+        status: "Pending"
+      };
+
+      try {
+        const { error } = await supabase.from("appointments").insert(appointment);
+        if (error) {
+          if (error.code === "42501") {
+            setToast({ message: "Please sign in to book.", tone: "error" });
+            return;
+          }
+          throw error;
+        }
+      } catch (error) {
+        console.error("Appointment insert failed", error);
+        setToast({ message: "Booking failed. Please try again.", tone: "error" });
+        return;
+      }
+
+      let emailDelayed = false;
+      try {
+        const response = await fetch("/api/appointments", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(appointment)
+        });
+
+        if (!response.ok) {
+          throw new Error(`Email request failed with status ${response.status}`);
+        }
+      } catch (error) {
+        console.error("Email notification failed", error);
+        emailDelayed = true;
+      }
+
+      setConfirmation({
+        queueNumber,
+        department: form.department,
+        preferredDate: form.preferredDate,
+        preferredTime: form.preferredTime
+      });
+      setToast({
+        message: emailDelayed ? "Booked! Email may be delayed." : "Appointment requested successfully.",
+        tone: emailDelayed ? "info" : "success"
+      });
+    } finally {
+      setLoading(false);
+    }
   }
 
   function resetForm() {
@@ -228,4 +248,3 @@ export function AppointmentForm({
     </>
   );
 }
-

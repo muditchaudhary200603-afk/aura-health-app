@@ -36,7 +36,7 @@ export const metadata = {
     description: "Precision medicine, staged like hospitality."
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: ["/favicon.ico", "/favicon.svg"],
     apple: "/favicon.svg"
   }
 };

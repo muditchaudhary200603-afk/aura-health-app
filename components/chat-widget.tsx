@@ -79,7 +79,7 @@ export function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-10 right-4 z-[80] flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-20 right-4 z-40 flex flex-col items-end gap-3 md:bottom-6 md:right-6">
       {open ? (
         <div className="premium-card w-[min(92vw,24rem)] overflow-hidden rounded-[1.75rem] border border-[#1B4332]/12 bg-white/95 shadow-[0_22px_60px_rgba(27,67,50,0.16)] backdrop-blur-xl dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(14,31,25,0.98),rgba(16,36,28,0.96))]">
           <div className="flex items-center justify-between border-b border-[#1B4332]/8 px-5 py-3 dark:border-white/10">
@@ -134,10 +134,9 @@ export function ChatWidget() {
         type="button"
         onClick={() => setOpen((current) => !current)}
         aria-label={open ? "Close AI Chat" : "Open AI Chat"}
-        className="inline-flex items-center gap-2 rounded-full bg-[#1B4332] px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#F5F0E8] shadow-[0_12px_32px_rgba(27,67,50,0.28)] transition hover:-translate-y-0.5 hover:scale-[1.03] dark:bg-[#95D5B2] dark:text-[#10211a] sm:gap-3 sm:px-5 sm:py-4 sm:text-sm"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1B4332] text-xs font-semibold uppercase tracking-[0.16em] text-[#F5F0E8] shadow-[0_12px_32px_rgba(27,67,50,0.28)] transition hover:-translate-y-0.5 hover:scale-[1.03] dark:bg-[#95D5B2] dark:text-[#10211a] md:h-14 md:w-14"
       >
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-white/12 text-xs dark:bg-black/10 sm:h-9 sm:w-9 sm:text-sm">AI</span>
-        <span>Chat</span>
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-white/12 text-xs dark:bg-black/10 md:h-9 md:w-9 md:text-sm">AI</span>
       </button>
     </div>
   );

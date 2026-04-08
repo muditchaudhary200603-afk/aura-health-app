@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { getSession, supabase } from "@/lib/supabase";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Ripple } from "@/components/ui/material-design-3-ripple";
@@ -75,10 +76,10 @@ export function SiteHeader() {
         Skip to content
       </a>
 
-      <header className="floating-header-shell">
+      <header className="floating-header-shell overflow-hidden">
         <div className="section-shell">
           <div
-            className={`floating-header-inner flex items-center justify-between gap-2 border border-white/55 px-3 py-[0.4rem] sm:px-4 sm:py-[0.45rem] shadow-[0_14px_36px_rgba(27,67,50,0.08),inset_0_1px_0_rgba(255,255,255,0.62),inset_0_-1px_0_rgba(255,255,255,0.16)] backdrop-blur-[30px] backdrop-saturate-[1.8] transition-all duration-500 ease-out supports-[backdrop-filter]:bg-white/16
+            className={`floating-header-inner flex items-center justify-between gap-2 border border-white/55 px-3 py-1.5 sm:px-4 sm:py-2 shadow-[0_14px_36px_rgba(27,67,50,0.08),inset_0_1px_0_rgba(255,255,255,0.62),inset_0_-1px_0_rgba(255,255,255,0.16)] backdrop-blur-[30px] backdrop-saturate-[1.8] transition-all duration-500 ease-out supports-[backdrop-filter]:bg-white/16
               dark:border-white/10 dark:shadow-[0_16px_42px_rgba(0,0,0,0.26),inset_0_1px_0_rgba(255,255,255,0.08),inset_0_-1px_0_rgba(255,255,255,0.03)] dark:supports-[backdrop-filter]:bg-[#163127]/22
               ${scrolled
                 ? "rounded-[1.4rem] sm:rounded-[1.6rem] bg-white/28 dark:bg-[#163127]/38"
@@ -127,7 +128,7 @@ export function SiteHeader() {
                 </Link>
               )}
               <ThemeToggle />
-              <Link href="/contact" className="relative overflow-hidden primary-button !hidden !px-5 !py-2.5 !text-[11px] !tracking-[0.22em] shadow-[0_4px_14px_rgba(27,67,50,0.3)] transition hover:scale-[1.03] sm:!inline-flex">
+              <Link href="/contact" className="relative overflow-hidden primary-button !hidden !px-3 !py-1.5 !text-[11px] !tracking-[0.22em] shadow-[0_4px_14px_rgba(27,67,50,0.3)] transition hover:scale-[1.03] sm:!inline-flex sm:!px-5 sm:!py-2.5">
                 <Ripple color="text-white" opacity={0.15} />
                 <span className="relative z-10 pointer-events-none">Book Visit</span>
               </Link>
@@ -140,11 +141,11 @@ export function SiteHeader() {
                 aria-expanded={mobileOpen}
                 className="relative grid h-11 w-11 place-items-center rounded-full border border-[#163b2e]/10 bg-white/40 shadow-sm transition hover:bg-white/60 dark:border-white/10 dark:bg-white/[0.08] lg:hidden"
               >
-                <div className="flex flex-col items-center gap-[5px]">
-                  <span className={`block h-[2px] w-[20px] rounded-full bg-[#163b2e] transition-transform dark:bg-[#F5F0E8] ${mobileOpen ? "translate-y-[7px] rotate-45" : ""}`} />
-                  <span className={`block h-[2px] w-[20px] rounded-full bg-[#163b2e] transition-opacity dark:bg-[#F5F0E8] ${mobileOpen ? "opacity-0" : ""}`} />
-                  <span className={`block h-[2px] w-[20px] rounded-full bg-[#163b2e] transition-transform dark:bg-[#F5F0E8] ${mobileOpen ? "-translate-y-[7px] -rotate-45" : ""}`} />
-                </div>
+                {mobileOpen ? (
+                  <X className="h-5 w-5 text-[#163b2e] dark:text-[#F5F0E8]" aria-hidden="true" />
+                ) : (
+                  <Menu className="h-5 w-5 text-[#163b2e] dark:text-[#F5F0E8]" aria-hidden="true" />
+                )}
               </button>
             </div>
           </div>
@@ -161,8 +162,8 @@ export function SiteHeader() {
       />
       <nav
         aria-label="Mobile navigation"
-        className={`fixed right-0 top-0 z-[66] flex h-full w-[min(80vw,320px)] flex-col gap-1 overflow-y-auto bg-white/95 px-6 pb-8 pt-24 shadow-[-12px_0_40px_rgba(27,67,50,0.15)] backdrop-blur-xl transition-transform duration-400 ease-out dark:bg-[#10211a]/95 lg:hidden ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed left-0 top-0 z-[66] flex h-full w-[min(80vw,320px)] flex-col gap-1 overflow-y-auto bg-white/95 px-6 pb-8 pt-24 shadow-[12px_0_40px_rgba(27,67,50,0.15)] backdrop-blur-xl transition-transform duration-400 ease-out dark:bg-[#10211a]/95 lg:hidden ${
+          mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {navItems.map((item) => {

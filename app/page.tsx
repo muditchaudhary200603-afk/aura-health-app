@@ -58,9 +58,12 @@ export default async function HomePage() {
                   <div className="eyebrow">{service.category}</div>
                   <h3 className="mt-3 font-display text-4xl font-semibold leading-none">{service.name}</h3>
                   <p className="mt-4 max-w-xl text-base leading-7 text-slate-600 dark:text-slate-300">{service.description}</p>
-                  <div className="mt-4 flex items-center justify-between text-sm uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-                    <span>{service.summary}</span>
-                    <Link href={`/contact?service=${encodeURIComponent(service.name)}`} className="link-line font-semibold text-pine dark:text-glow">
+                  <div className="mt-4 flex flex-col gap-3 text-sm uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400 sm:flex-row sm:items-end sm:justify-between">
+                    <span className="sm:max-w-[60%]">{service.summary}</span>
+                    <Link
+                      href={`/contact?service=${encodeURIComponent(service.name)}`}
+                      className="link-line whitespace-nowrap font-semibold text-pine dark:text-glow"
+                    >
                       Book consultation
                     </Link>
                   </div>

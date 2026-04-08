@@ -56,7 +56,7 @@ export function HeroSurface({
       </div>
       <motion.div className="absolute inset-0 hidden md:block" style={{ backgroundImage: glow }} />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.14),transparent_30%,rgba(0,0,0,0.46))]" />
-      <div className="section-shell relative flex min-h-[100svh] items-end pb-16 pt-32 sm:pb-20 md:items-center">
+      <div className="section-shell relative flex min-h-[100svh] items-end pb-16 pt-20 sm:pb-20 md:items-center md:pt-28">
         <div className="max-w-3xl">
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 24 }}

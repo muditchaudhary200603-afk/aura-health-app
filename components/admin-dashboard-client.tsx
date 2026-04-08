@@ -198,30 +198,30 @@ export function AdminDashboardClient() {
           ))}
         </div>
 
-        <div className="premium-card mt-8 grid gap-3 rounded-[1.5rem] bg-white p-4 shadow-lg dark:border dark:border-white/10 dark:bg-white/[0.05] lg:grid-cols-[1fr_1fr_1fr_auto]">
-          <select className="light-input" value={filters.department} onChange={(event) => setFilters((current) => ({ ...current, department: event.target.value }))}>
+        <div className="premium-card mt-8 flex flex-wrap gap-2 rounded-[1.5rem] bg-white p-4 shadow-lg dark:border dark:border-white/10 dark:bg-white/[0.05] md:gap-3">
+          <select className="light-input min-w-[12rem] flex-1" value={filters.department} onChange={(event) => setFilters((current) => ({ ...current, department: event.target.value }))}>
             {departments.map((department) => (
               <option key={department} value={department}>
                 {department}
               </option>
             ))}
           </select>
-          <select className="light-input" value={filters.status} onChange={(event) => setFilters((current) => ({ ...current, status: event.target.value }))}>
+          <select className="light-input min-w-[12rem] flex-1" value={filters.status} onChange={(event) => setFilters((current) => ({ ...current, status: event.target.value }))}>
             {["All", "Pending", "Confirmed", "Cancelled"].map((status) => (
               <option key={status} value={status}>
                 {status}
               </option>
             ))}
           </select>
-          <input className="light-input" type="date" value={filters.date} onChange={(event) => setFilters((current) => ({ ...current, date: event.target.value }))} />
-          <button type="button" onClick={() => setFilters({ department: "All", status: "All", date: "" })} className="outline-button">
+          <input className="light-input min-w-[12rem] flex-1" type="date" value={filters.date} onChange={(event) => setFilters((current) => ({ ...current, date: event.target.value }))} />
+          <button type="button" onClick={() => setFilters({ department: "All", status: "All", date: "" })} className="outline-button whitespace-nowrap">
             Clear
           </button>
         </div>
 
         <div className="premium-card mt-8 overflow-hidden rounded-[1.8rem] bg-white shadow-lg dark:border dark:border-white/10 dark:bg-white/[0.05]">
-          <div className="overflow-x-auto">
-            <table className="min-w-full">
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+            <table className="min-w-[640px] md:min-w-full">
               <thead>
                 <tr className="border-b border-[#1B4332]/10 text-left text-xs uppercase tracking-[0.18em] text-[#1B4332]/62 dark:border-white/10 dark:text-[#F5F0E8]/62">
                   {["Queue#", "Patient", "Email", "Phone", "Dept", "Specialist", "Date", "Time", "Status", "Actions"].map((label) => (
